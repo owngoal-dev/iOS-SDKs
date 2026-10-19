@@ -1,0 +1,28 @@
+--- !tapi-tbd-v3
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              ios
+flags:                 [ flat_namespace ]
+install-name:          /System/Library/PrivateFrameworks/ACIObjCCoreKit.framework/ACIObjCCoreKit
+current-version:       1
+compatibility-version: 1
+objc-constraint:       retain_release
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ _ACIObjCCoreKitVersionNumber,
+                            _ACIObjCCoreKitVersionString,
+                            __Z11aci2nsArrayPN3aci5ArrayE,
+                            __Z11ns2aciArrayP7NSArray,
+                            __Z12aci2nsNumberPN3aci6NumberE,
+                            __Z12aci2nsObjectPN3aci6ObjectE,
+                            __Z12aci2nsStringPN3aci6StringE,
+                            __Z12ns2aciNumberP8NSNumber,
+                            __Z12ns2aciObjectP11objc_object,
+                            __Z12ns2aciStringP8NSString,
+                            __Z12nsDictToJSONP12NSDictionary,
+                            __Z12nsJSONToDictP8NSString,
+                            __Z14ns2aciJSONDictP8NSString,
+                            __Z16aci2nsDictionaryPN3aci10DictionaryE,
+                            __Z16aci2nsJSONStringPN3aci10DictionaryE,
+                            __Z16ns2aciDictionaryP12NSDictionary,
+                            __Z26fixedPriorityDispatchQueuePKcPU33objcproto22OS_dispatch_queue_attr8NSObjectj ]
+...
