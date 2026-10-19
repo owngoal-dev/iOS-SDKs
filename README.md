@@ -29,15 +29,6 @@ Each branch `sdk/iPhoneOS<version>` holds exactly one folder,
 
 | Branch | SDK | From |
 | --- | --- | --- |
-| `sdk/iPhoneOS13.0` | iPhoneOS 13.0 | xybp888 `iPhoneOS13.0.sdk` |
-| `sdk/iPhoneOS13.4` | iPhoneOS 13.4 | xybp888 `iPhoneOS13.4.sdk` |
-| `sdk/iPhoneOS13.5` | iPhoneOS 13.5 | xybp888 `iPhoneOS13.5.sdk` |
-| `sdk/iPhoneOS13.6` | iPhoneOS 13.6 | xybp888 `iPhoneOS13.6.sdk` |
-| `sdk/iPhoneOS13.7` | iPhoneOS 13.7 | xybp888 `iPhoneOS13.7.sdk` |
-| `sdk/iPhoneOS14.0` | iPhoneOS 14.0 | xybp888 `iPhoneOS14.0.sdk` |
-| `sdk/iPhoneOS14.1` | iPhoneOS 14.1 | xybp888 `iPhoneOS14.1.sdk` |
-| `sdk/iPhoneOS14.2` | iPhoneOS 14.2 | xybp888 `iPhoneOS14.2.sdk` |
-| `sdk/iPhoneOS14.4` | iPhoneOS 14.4 | xybp888 `iPhoneOS14.4.sdk` |
 | `sdk/iPhoneOS14.5` | iPhoneOS 14.5 | xybp888 `iPhoneOS14.5.sdk` |
 | `sdk/iPhoneOS15.2` | iPhoneOS 15.2 | xybp888 `iPhoneOS15.2.sdk` |
 | `sdk/iPhoneOS15.5` | iPhoneOS 15.5 | xybp888 `iPhoneOS15.5.sdk` |
@@ -68,6 +59,11 @@ iPhoneOS 17.0), the branch takes the folder named for that version, or
 the first one that starts with it. The folders for iPhoneOS 9.3 to 12.4
 have no `SDKSettings.json`, which Apelin reads an SDK's identity from,
 so they have no branch here.
+
+The iPhoneOS 13.0–14.4 SDKs are also omitted: they do not contain the
+C++ standard library headers (`usr/include/c++/v1/iostream`), so they
+cannot pass Apelin's complete C, C++ and Objective-C self-test. The default
+source starts at iPhoneOS 14.5.
 
 ## How Apelin uses them
 
