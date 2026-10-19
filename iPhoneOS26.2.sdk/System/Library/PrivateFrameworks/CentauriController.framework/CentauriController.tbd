@@ -1,0 +1,32 @@
+--- !tapi-tbd-v3
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              ios
+flags:                 [ flat_namespace ]
+install-name:          /System/Library/PrivateFrameworks/CentauriController.framework/CentauriController
+current-version:       1
+compatibility-version: 1
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ _CentauriControllerAllocateSecondaryMemory,
+                            _CentauriControllerCollectLogs,
+                            _CentauriControllerCollectLogsWithOptions,
+                            _CentauriControllerCreateWithParameters,
+                            _CentauriControllerFree,
+                            _CentauriControllerGetBootTimestamps,
+                            _CentauriControllerGetChipPower,
+                            _CentauriControllerGetChipState,
+                            _CentauriControllerGetCrashlogs,
+                            _CentauriControllerGetCurrentDriverInstance,
+                            _CentauriControllerMapSecondaryMemory,
+                            _CentauriControllerRegisterCrashlogHandler,
+                            _CentauriControllerRegisterUniqueErrorHandlerWithLoop,
+                            _CentauriControllerRegisterUniqueErrorHandlerWithQueue,
+                            _CentauriControllerReset,
+                            _CentauriControllerSendBootTimestamps,
+                            _CentauriControllerSendFirmwareBootTimestamps,
+                            _CentauriControllerSetChipPower,
+                            _CentauriControllerSetHardwareHealth,
+                            _CentauriControllerSetLogSink,
+                            _CentauriControllerSetMemSwapRegions,
+                            _CentauriControllerUnmapSecondaryMemory ]
+...

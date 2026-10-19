@@ -1,0 +1,77 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.3.3.2 clang-1700.6.3.2)
+// swift-module-flags: -target arm64e-apple-ios26.2 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -library-level api -enable-upcoming-feature MemberImportVisibility -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -user-module-version 322.8 -module-name AccessoryTransportExtension
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+import AccessorySetupKit.ASAccessory
+import AccessorySetupKit
+import ExtensionFoundation
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+@available(iOS 26.2, *)
+public protocol AccessoryTransportAppExtension : ExtensionFoundation.AppExtension {
+  func accept(sessionRequest: AccessoryTransportExtension.AccessoryTransportSession.Request) -> AccessoryTransportExtension.AccessoryTransportSession.Request.Decision
+}
+@available(iOS 26.2, *)
+@_Concurrency.MainActor extension AccessoryTransportExtension.AccessoryTransportAppExtension {
+  @_Concurrency.MainActor public var configuration: some AccessoryTransportExtension.AccessoryTransportExtensionConfiguration {
+    get
+  }
+}
+@available(iOS 26.2, *)
+public protocol AccessoryTransportExtensionConfiguration : ExtensionFoundation.AppExtensionConfiguration {
+}
+@available(iOS 26.2, *)
+extension AccessoryTransportExtension.AccessoryTransportSession {
+  public enum Error : Swift.Error, Swift.CustomStringConvertible {
+    case unknown
+    case invalidated
+    case unsupported
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: AccessoryTransportExtension.AccessoryTransportSession.Error, b: AccessoryTransportExtension.AccessoryTransportSession.Error) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+@_hasMissingDesignatedInitializers @available(iOS 26.2, *)
+public class AccessoryTransportSession : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func cancel(error: AccessoryTransportExtension.AccessoryTransportSession.Error?)
+  #endif
+  @objc deinit
+}
+@available(iOS 26.2, *)
+extension AccessoryTransportExtension.AccessoryTransportSession {
+  public protocol EventHandler {
+    #if compiler(>=5.3) && $NonescapableTypes
+    func invalidationHandler(error: AccessoryTransportExtension.AccessoryTransportSession.Error?)
+    #endif
+  }
+}
+@available(iOS 26.2, *)
+extension AccessoryTransportExtension.AccessoryTransportSession {
+  @_hasMissingDesignatedInitializers final public class Request {
+    public struct Decision {
+    }
+    final public let session: AccessoryTransportExtension.AccessoryTransportSession
+    final public func accept<Handler>(_ sessionRequestHandler: () -> Handler) -> AccessoryTransportExtension.AccessoryTransportSession.Request.Decision where Handler : AccessoryTransportExtension.AccessoryTransportSession.EventHandler
+    #if compiler(>=5.3) && $NonescapableTypes
+    final public func reject(error: AccessoryTransportExtension.AccessoryTransportSession.Error?) -> AccessoryTransportExtension.AccessoryTransportSession.Request.Decision
+    #endif
+    @objc deinit
+  }
+}
+@available(iOS 26.2, *)
+extension AccessoryTransportExtension.AccessoryTransportSession.Error : Swift.Equatable {}
+@available(iOS 26.2, *)
+extension AccessoryTransportExtension.AccessoryTransportSession.Error : Swift.Hashable {}

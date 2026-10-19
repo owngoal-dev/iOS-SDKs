@@ -1,0 +1,52 @@
+--- !tapi-tbd-v3
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              ios
+flags:                 [ flat_namespace ]
+install-name:          /System/Library/Frameworks/LocalAuthentication.framework/Support/SharedUtils.framework/SharedUtils
+current-version:       2005.62.1
+compatibility-version: 1
+objc-constraint:       retain_release
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ _LAAssertionsProxyFactory, _LAErrorDomain,
+                            _LAErrorSubcodeKey,
+                            _LAFeatureFlagOysterSkipSDKVerification,
+                            _LALogCategoryForOptions, _LALogCategoryForPolicy,
+                            _LALogForCategory, _LALogForPolicy,
+                            _LALogSetProcessCategory, _LALogTypeForInternalError,
+                            _LASerialScheduler, _LAStorageErrorDomain,
+                            _NSStringFromLAPasscodeType, __isSharedIPad ]
+    objc-classes:         [ LAACMBiometricAttemptNotifier, LAADMUser,
+                            LAAssertionsProxy, LABaseService, LABaseServiceManager,
+                            LADFR, LADecriptionBuilder, LADefaultServiceSession,
+                            LAErrorHelper, LAErrorOysterRedactor, LAErrorRedactor,
+                            LAInstanceIDGenerator, LAInternalProtocols,
+                            LAPasscodeHelper,
+                            LAPasscodeHelperPasscodeStateManagedSettings,
+                            LAPasscodeHelperPasscodeStateRepository,
+                            LAPasscodeHelperPasscodeStateSimulator,
+                            LASerialSchedulerInternal, LAServiceAdapter, LAUtils ]
+    objc-ivars:           [ LAAssertionsProxy._connection,
+                            LAAssertionsProxy._queue, LABaseService._clients,
+                            LABaseService._endpoint, LABaseService._listener,
+                            LABaseService._queue, LABaseService._serviceID,
+                            LABaseService._terminating, LABaseService.manager,
+                            LABaseServiceManager._sessions,
+                            LADFR._agentConnection, LADFR._xpcQueue,
+                            LADecriptionBuilder._components,
+                            LADecriptionBuilder._object,
+                            LADefaultServiceSession._clientID,
+                            LADefaultServiceSession._service,
+                            LADefaultServiceSession._serviceType,
+                            LADefaultServiceSession._sessionID,
+                            LAErrorOysterRedactor._defaults,
+                            LAErrorOysterRedactor._minSDKVersion,
+                            LAInstanceIDGenerator._currentIDs,
+                            LASerialSchedulerInternal._pendingOperations,
+                            LASerialSchedulerInternal._performingPendingOperations,
+                            LASerialSchedulerInternal._running,
+                            LASerialSchedulerInternal._workQueue,
+                            LAServiceAdapter._exportedInterface,
+                            LAServiceAdapter._exportedObject,
+                            LAServiceAdapter._queue ]
+...

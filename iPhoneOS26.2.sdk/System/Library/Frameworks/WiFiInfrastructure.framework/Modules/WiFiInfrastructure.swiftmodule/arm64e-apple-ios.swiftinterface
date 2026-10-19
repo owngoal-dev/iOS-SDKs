@@ -1,0 +1,313 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2 (swiftlang-6.2.3.3.2 clang-1700.6.3.2)
+// swift-module-flags: -target arm64e-apple-ios26.2 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -library-level api -enable-upcoming-feature MemberImportVisibility -enable-experimental-feature DebugDescriptionMacro -user-module-version 988.12.4.5 -module-name WiFiInfrastructure
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+import AccessorySetupKit.ASAccessory
+import AccessorySetupKit
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+public enum WINetworkSharingAskToShareState : Swift.Sendable, Swift.Hashable, Swift.Equatable, Swift.CaseIterable {
+  case undetermined
+  case denied
+  case approved
+  public static func == (a: WiFiInfrastructure.WINetworkSharingAskToShareState, b: WiFiInfrastructure.WINetworkSharingAskToShareState) -> Swift.Bool
+  @available(iOS 26.2, *)
+  @available(tvOS, unavailable)
+  @available(watchOS, unavailable)
+  @available(visionOS, unavailable)
+  @available(macOS, unavailable)
+  @available(macCatalyst, unavailable)
+  public typealias AllCases = [WiFiInfrastructure.WINetworkSharingAskToShareState]
+  nonisolated public static var allCases: [WiFiInfrastructure.WINetworkSharingAskToShareState] {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+public class WINetworkSharingController {
+  final public let accessory: AccessorySetupKit.ASAccessory
+  public func requestAuthorization() async throws -> WiFiInfrastructure.WINetworkSharingController.AuthorizationState
+  public func askToShare() async throws -> WiFiInfrastructure.WINetworkSharingAskToShareState
+  public init(for accessory: AccessorySetupKit.ASAccessory) async throws
+  public enum AuthorizationState : Swift.Sendable, Swift.Hashable, Swift.Equatable, Swift.CaseIterable {
+    case undetermined
+    case denied
+    case askToShare
+    case automatic
+    public static func == (a: WiFiInfrastructure.WINetworkSharingController.AuthorizationState, b: WiFiInfrastructure.WINetworkSharingController.AuthorizationState) -> Swift.Bool
+    @available(iOS 26.2, *)
+    @available(tvOS, unavailable)
+    @available(watchOS, unavailable)
+    @available(visionOS, unavailable)
+    @available(macOS, unavailable)
+    @available(macCatalyst, unavailable)
+    public typealias AllCases = [WiFiInfrastructure.WINetworkSharingController.AuthorizationState]
+    nonisolated public static var allCases: [WiFiInfrastructure.WINetworkSharingController.AuthorizationState] {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc deinit
+}
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+public enum WINetworkSharingError : Foundation.LocalizedError, Swift.Error, Swift.Codable {
+  case error
+  case timeout
+  case communicationFailure
+  case wifiNetworkSharingUnsupported
+  case appNotPermitted
+  case appNotInForeground
+  case accessoryTransportNotSecured
+  case accessoryNotConfigured
+  case accessoryNotAuthorized
+  case accessoryNotConnected
+  case noAvailableNetworks
+  case tooManyRequests
+  case noAccessoryScanResponse
+  case noMatchingAccessoryScanRequest
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorDescription: Swift.String? {
+    get
+  }
+  #endif
+  public static func == (a: WiFiInfrastructure.WINetworkSharingError, b: WiFiInfrastructure.WINetworkSharingError) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+public class WINetworkSharingProvider {
+  final public let accessory: AccessorySetupKit.ASAccessory
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func networkEvents(matching predicate: Foundation.Predicate<WiFiInfrastructure.WINetworkSharingProvider.Network>? = nil) -> some Swift.Sendable & _Concurrency.AsyncSequence<WiFiInfrastructure.WINetworkSharingProvider.NetworkEvent, any Swift.Error>
+  
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func presentAskToShareUI(scanProvider: (@Sendable (_ accessory: AccessorySetupKit.ASAccessory, _ scanRequest: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest) async -> WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResponse?)? = nil) async throws -> WiFiInfrastructure.WINetworkSharingAskToShareState
+  #endif
+  public init(for accessory: AccessorySetupKit.ASAccessory) async throws
+  public struct Network : Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable, Swift.Identifiable, Swift.CustomStringConvertible {
+    public var id: WiFiInfrastructure.WINetworkSharingProvider.Network.ID {
+      get
+    }
+    public let firstShared: Foundation.Date
+    public let lastModified: Foundation.Date
+    public let ssid: WiFiInfrastructure.WISSID
+    public let isSSIDBroadcast: Swift.Bool
+    public let securityPolicy: Swift.Set<WiFiInfrastructure.WINetworkSharingProvider.Network.SecurityPolicy>
+    public let credentials: WiFiInfrastructure.WINetworkSharingProvider.Network.Credentials
+    public let captivePortalLogin: WiFiInfrastructure.WINetworkSharingProvider.Network.CaptivePortalLogin?
+    public var description: Swift.String {
+      get
+    }
+    public enum SecurityPolicy : Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable, Swift.CaseIterable {
+      case open
+      case owe
+      case wep
+      case wpa
+      case wpa2
+      case wpa3
+      public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.Network.SecurityPolicy, b: WiFiInfrastructure.WINetworkSharingProvider.Network.SecurityPolicy) -> Swift.Bool
+      @available(iOS 26.2, *)
+      @available(tvOS, unavailable)
+      @available(watchOS, unavailable)
+      @available(visionOS, unavailable)
+      @available(macOS, unavailable)
+      @available(macCatalyst, unavailable)
+      public typealias AllCases = [WiFiInfrastructure.WINetworkSharingProvider.Network.SecurityPolicy]
+      nonisolated public static var allCases: [WiFiInfrastructure.WINetworkSharingProvider.Network.SecurityPolicy] {
+        get
+      }
+      public func encode(to encoder: any Swift.Encoder) throws
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+      public init(from decoder: any Swift.Decoder) throws
+    }
+    public enum Credentials : Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable, Swift.CustomStringConvertible {
+      case none
+      case password(Swift.String)
+      public var description: Swift.String {
+        get
+      }
+      public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.Network.Credentials, b: WiFiInfrastructure.WINetworkSharingProvider.Network.Credentials) -> Swift.Bool
+      public func encode(to encoder: any Swift.Encoder) throws
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+      public init(from decoder: any Swift.Decoder) throws
+    }
+    public struct CaptivePortalLogin : Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable, Swift.CustomStringConvertible {
+      public let userEnteredFormValues: [Swift.String : Swift.String]
+      public var description: Swift.String {
+        get
+      }
+      public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.Network.CaptivePortalLogin, b: WiFiInfrastructure.WINetworkSharingProvider.Network.CaptivePortalLogin) -> Swift.Bool
+      public func encode(to encoder: any Swift.Encoder) throws
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+      public init(from decoder: any Swift.Decoder) throws
+    }
+    public struct ID : Swift.Sendable, Swift.Codable, Swift.Equatable, Swift.Hashable {
+      public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.Network.ID, b: WiFiInfrastructure.WINetworkSharingProvider.Network.ID) -> Swift.Bool
+      public func encode(to encoder: any Swift.Encoder) throws
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+      public init(from decoder: any Swift.Decoder) throws
+    }
+    public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.Network, b: WiFiInfrastructure.WINetworkSharingProvider.Network) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct NetworkEvent : Swift.Sendable, Swift.Codable, Swift.Identifiable, Swift.Equatable, Swift.Hashable, Swift.CustomStringConvertible {
+    public typealias ID = Swift.UInt64
+    public var id: WiFiInfrastructure.WINetworkSharingProvider.NetworkEvent.ID {
+      get
+    }
+    public let timestamp: Foundation.Date
+    public let newShareableNetworkAvailable: Swift.Bool
+    public let appRequestedSharing: Swift.Bool
+    public let networks: [WiFiInfrastructure.WINetworkSharingProvider.Network]
+    public let networksUpdateCounter: Swift.UInt64
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.NetworkEvent, b: WiFiInfrastructure.WINetworkSharingProvider.NetworkEvent) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct AccessoryScanRequest : Swift.Identifiable, Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable {
+    public typealias ID = Swift.UInt64
+    public var id: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest.ID {
+      get
+    }
+    public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest, b: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct AccessoryScanResponse : Swift.Identifiable, Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable {
+    public typealias ID = WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest.ID
+    public var id: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResponse.ID {
+      get
+    }
+    public let scanRequest: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest
+    public let results: [WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResult]
+    public init(scanRequest: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanRequest, results: [WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResult])
+    public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResponse, b: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResponse) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public struct AccessoryScanResult : Swift.Sendable, Swift.Codable, Swift.Hashable, Swift.Equatable {
+    public let ssid: WiFiInfrastructure.WISSID?
+    public let signalStrength: Swift.Double
+    public let isConnected: Swift.Bool
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(ssid: WiFiInfrastructure.WISSID?, signalStrength: Swift.Double, isConnected: Swift.Bool)
+    #endif
+    public static func == (a: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResult, b: WiFiInfrastructure.WINetworkSharingProvider.AccessoryScanResult) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  @objc deinit
+}
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+public struct WISSID : Swift.Sendable, Swift.Equatable, Swift.Hashable, Swift.CustomStringConvertible, Swift.Codable {
+  public let data: Foundation.Data
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stringRepresentation(encoding: Swift.String.Encoding = .utf8) -> Swift.String?
+  #endif
+  public var description: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(_ ssid: Foundation.Data)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(_ ssid: Swift.String, encoding: Swift.String.Encoding = .utf8)
+  #endif
+  public static func == (a: WiFiInfrastructure.WISSID, b: WiFiInfrastructure.WISSID) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+extension WiFiInfrastructure.WINetworkSharingError : Swift.Equatable {}
+@available(iOS 26.2, *)
+@available(macOS, unavailable)
+@available(macCatalyst, unavailable)
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
+@available(visionOS, unavailable)
+extension WiFiInfrastructure.WINetworkSharingError : Swift.Hashable {}
