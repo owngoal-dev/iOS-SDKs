@@ -1,0 +1,32 @@
+--- !tapi-tbd-v3
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              ios
+flags:                 [ flat_namespace ]
+install-name:          /System/Library/PrivateFrameworks/iCloudMailAssistant.framework/iCloudMailAssistant
+current-version:       1
+compatibility-version: 1
+objc-constraint:       retain_release
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ __MALogSystem, _iCloudMailAssistantVersionNumber,
+                            _iCloudMailAssistantVersionString ]
+    objc-classes:         [ _TtC19iCloudMailAssistant15MALiftUIRequest,
+                            _TtC19iCloudMailAssistant15MATipAPIRequest,
+                            _TtC19iCloudMailAssistant22UnifiedRulesAPIRequest,
+                            _TtC19iCloudMailAssistant24GenericRequestAPIRequest,
+                            _TtC19iCloudMailAssistant24GetPreferencesAPIRequest,
+                            _TtC19iCloudMailAssistant25MAUpdateConsentAPIRequest,
+                            _TtC19iCloudMailAssistant26UnsubscribeLinksAPIRequest,
+                            _TtC19iCloudMailAssistant27DeleteUnifiedRuleAPIRequest,
+                            _TtC19iCloudMailAssistant27GetBulkActionJobsAPIRequest,
+                            _TtC19iCloudMailAssistant27SharedPreferencesAPIRequest,
+                            _TtC19iCloudMailAssistant28GetRecommendationsAPIRequest,
+                            _TtC19iCloudMailAssistant28MAUIWisperUnsubscribeRequest,
+                            _TtC19iCloudMailAssistant31MAUpdateAutomationTipAPIRequest,
+                            _TtC19iCloudMailAssistant32MAUpdateUnsubscribeTipAPIRequest,
+                            _TtC19iCloudMailAssistant34MAUIWisperRemoveUnsubscribeRequest,
+                            _TtC19iCloudMailAssistant39MAUIWisperGetDashboardEntryPointRequest,
+                            _TtC19iCloudMailAssistant40UpdateAutomationRecommendationAPIRequest,
+                            _TtC19iCloudMailAssistant41UpdateUnsubscribeRecommendationAPIRequest,
+                            _TtCE19iCloudMailAssistantCSo14NSUserDefaults23MailCleanupUserDefaults ]
+...

@@ -1,0 +1,20 @@
+--- !tapi-tbd-v3
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              ios
+flags:                 [ flat_namespace ]
+install-name:          /System/Library/PrivateFrameworks/CarPlayAssetUI.framework/CarPlayAssetUI
+current-version:       1
+compatibility-version: 1
+objc-constraint:       retain_release
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ _CarPlayAssetUIVersionNumber,
+                            _CarPlayAssetUIVersionString ]
+    objc-classes:         [ _TtC14CarPlayAssetUI11WidgetStack,
+                            _TtC14CarPlayAssetUI20WidgetGalleryManager,
+                            _TtC14CarPlayAssetUI23WidgetExtensionProvider,
+                            _TtC14CarPlayAssetUI27WidgetGalleryViewController,
+                            _TtC14CarPlayAssetUI29WidgetContainerViewController,
+                            _TtC14CarPlayAssetUI30WidgetMultiStackViewController,
+                            _TtC14CarPlayAssetUI31WidgetExtensionProviderObserver ]
+...

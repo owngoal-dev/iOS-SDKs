@@ -1,0 +1,10 @@
+framework module SwiftUICore [system] {
+    umbrella header "SwiftUICore.h"
+    export *
+    module * {export *}
+
+    // FIXME: Remove when it's been in the build for a while and DesignLibrary
+    // and UIKit have removed dependencies.
+    module Radar157571139 {
+    }
+}

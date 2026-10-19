@@ -1,0 +1,543 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.17.14 clang-1700.3.17.1)
+// swift-module-flags: -target arm64e-apple-ios26.0 -enable-objc-interop -autolink-force-load -enable-library-evolution -module-link-name swiftCoreAudio_Private -swift-version 5 -enforce-exclusivity=checked -O -library-level spi -enable-upcoming-feature MemberImportVisibility -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -user-module-version 411.106 -module-name CoreAudio_Private
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -project-name AudioHAL -interface-compiler-version 6.2
+import CoreAudio
+import CoreAudioTypes
+@_exported import CoreAudio_Private
+import Foundation
+import Swift
+import Synchronization
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareSystem : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  public static let shared: CoreAudio_Private.AudioHardwareSystem
+  open var devices: [CoreAudio_Private.AudioHardwareDevice] {
+    get throws
+  }
+  open var plugins: [CoreAudio_Private.AudioHardwarePlugin] {
+    get throws
+  }
+  open var boxes: [CoreAudio_Private.AudioHardwareBox] {
+    get throws
+  }
+  open var clocks: [CoreAudio_Private.AudioHardwareClock] {
+    get throws
+  }
+  open var processes: [CoreAudio_Private.AudioHardwareProcess] {
+    get throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var defaultInputDevice: CoreAudio_Private.AudioHardwareDevice? {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var defaultOutputDevice: CoreAudio_Private.AudioHardwareDevice? {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var defaultSoundEffectsDevice: CoreAudio_Private.AudioHardwareDevice? {
+    get throws
+  }
+  #endif
+  open var shouldMixStereoToMono: Swift.Bool {
+    get throws
+  }
+  open var isInitializingOrExiting: Swift.Bool {
+    get throws
+  }
+  open var isProcessInputMuted: Swift.Bool {
+    get throws
+  }
+  open var allowsSleeping: Swift.Bool {
+    get throws
+  }
+  open var allowsUnloading: Swift.Bool {
+    get throws
+  }
+  open var allowsHogMode: Swift.Bool {
+    get throws
+  }
+  open var powerHint: CoreAudio_Private.AudioHardwarePowerHint {
+    get throws
+  }
+  open func setDefaultInputDevice(_ device: CoreAudio_Private.AudioHardwareDevice) throws
+  open func setDefaultOutputDevice(_ device: CoreAudio_Private.AudioHardwareDevice) throws
+  open func setDefaultSoundEffectsDevice(_ device: CoreAudio_Private.AudioHardwareDevice) throws
+  open func setShouldMixStereoToMono(_ doMix: Swift.Bool) throws
+  open func setIsProcessInputMuted(_ muted: Swift.Bool) throws
+  open func setAllowsSleeping(_ allowed: Swift.Bool) throws
+  open func setAllowsUnloading(_ allowed: Swift.Bool) throws
+  open func setAllowsHogMode(_ allowed: Swift.Bool) throws
+  open func setPowerHint(_ hint: CoreAudio_Private.AudioHardwarePowerHint) throws
+  open func unload() throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func makeAggregateDevice(description: [Swift.String : Any]) throws -> CoreAudio_Private.AudioHardwareAggregateDevice?
+  #endif
+  open func destroyAggregateDevice(_ device: CoreAudio_Private.AudioHardwareAggregateDevice) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func device(forUID UID: Swift.String) throws -> CoreAudio_Private.AudioHardwareDevice?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func clock(forUID UID: Swift.String) throws -> CoreAudio_Private.AudioHardwareClock?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func box(forUID UID: Swift.String) throws -> CoreAudio_Private.AudioHardwareBox?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func plugin(forBundleID ID: Swift.String) throws -> CoreAudio_Private.AudioHardwarePlugin?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func process(for PID: _DarwinFoundation2.pid_t) throws -> CoreAudio_Private.AudioHardwareProcess?
+  #endif
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@available(macOS 15.0, *)
+public func PropertyAddress(_ selector: CoreAudio_Private.AudioObjectPropertySelector, scope: CoreAudio_Private.AudioObjectPropertyScope = kAudioObjectPropertyScopeGlobal, element: CoreAudio_Private.AudioObjectPropertyElement = kAudioObjectPropertyElementMain) -> CoreAudio_Private.AudioObjectPropertyAddress
+@available(macOS 15.0, *)
+public protocol PropertyListenerDelegate {
+  func propertiesChanged(properties: [CoreAudio_Private.AudioObjectPropertyAddress])
+}
+@available(macOS 15.0, *)
+public struct AudioHardwareError : Foundation.LocalizedError, Swift.Sendable {
+  public let error: Darwin.OSStatus
+  public init(_ err: Darwin.OSStatus)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorDescription: Swift.String? {
+    get
+  }
+  #endif
+}
+@available(macOS 15.0, *)
+public enum AudioHardwareDirection : Swift.UInt32, Swift.Sendable {
+  case output
+  case input
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.UInt32)
+  #endif
+  @available(macOS 15.0, *)
+  public typealias RawValue = Swift.UInt32
+  public var rawValue: Swift.UInt32 {
+    get
+  }
+}
+@available(macOS 15.0, *)
+extension CoreAudio_Private.AudioObjectPropertyAddress : Swift.Hashable {
+  public static func == (lhs: CoreAudio_Private.AudioObjectPropertyAddress, rhs: CoreAudio_Private.AudioObjectPropertyAddress) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareStream : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  open var isActive: Swift.Bool {
+    get throws
+  }
+  open var direction: CoreAudio_Private.AudioHardwareDirection {
+    get throws
+  }
+  open var terminalType: Swift.UInt32 {
+    get throws
+  }
+  open var startingChannel: Swift.Int {
+    get throws
+  }
+  open var latency: Swift.Int {
+    get throws
+  }
+  open var virtualFormat: CoreAudioTypes.AudioStreamBasicDescription {
+    get throws
+  }
+  open var availableVirtualFormats: [CoreAudio_Private.AudioStreamRangedDescription] {
+    get throws
+  }
+  open var physicalFormat: CoreAudioTypes.AudioStreamBasicDescription {
+    get throws
+  }
+  open var availablePhysicalFormats: [CoreAudio_Private.AudioStreamRangedDescription] {
+    get throws
+  }
+  open func setIsActive(_ active: Swift.Bool) throws
+  open func setVirtualFormat(_ format: CoreAudioTypes.AudioStreamBasicDescription) throws
+  open func setPhysicalFormat(_ format: CoreAudioTypes.AudioStreamBasicDescription) throws
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareProcess : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  open var pid: _DarwinFoundation2.pid_t {
+    get throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var bundleID: Swift.String? {
+    get throws
+  }
+  #endif
+  open var devices: [CoreAudio_Private.AudioHardwareDevice] {
+    get throws
+  }
+  open var isRunning: Swift.Bool {
+    get throws
+  }
+  open var isRunningInput: Swift.Bool {
+    get throws
+  }
+  open var isRunningOutput: Swift.Bool {
+    get throws
+  }
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareBox : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  open var uid: Swift.String {
+    get throws
+  }
+  open var transportType: Swift.UInt32 {
+    get throws
+  }
+  open var hasAudio: Swift.Bool {
+    get throws
+  }
+  open var hasVideo: Swift.Bool {
+    get throws
+  }
+  open var hasMIDI: Swift.Bool {
+    get throws
+  }
+  open var isProtected: Swift.Bool {
+    get throws
+  }
+  open var enabled: Swift.Bool {
+    get throws
+  }
+  open var devices: [CoreAudio_Private.AudioHardwareDevice] {
+    get throws
+  }
+  open var clocks: [CoreAudio_Private.AudioHardwareClock] {
+    get throws
+  }
+  open func enable() throws
+  open func disable() throws
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareControl : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  open var sliderValue: Swift.UInt32 {
+    get throws
+  }
+  open var sliderRange: [Swift.UInt32] {
+    get throws
+  }
+  open var volumeScalarValue: Swift.Float {
+    get throws
+  }
+  open var volumeDecibelValue: Swift.Float {
+    get throws
+  }
+  open var volumeDecibelRange: CoreAudioTypes.AudioValueRange {
+    get throws
+  }
+  open var booleanValue: Swift.Bool {
+    get throws
+  }
+  open var selectedItems: [Swift.UInt32] {
+    get throws
+  }
+  open var availableItems: [Swift.UInt32] {
+    get throws
+  }
+  open var stereoPanValue: Swift.Float {
+    get throws
+  }
+  open var stereoPanChannels: [Swift.UInt32] {
+    get throws
+  }
+  open func setSliderValue(_ value: Swift.UInt32) throws
+  open func setVolumeScalarValue(_ value: Swift.Float) throws
+  open func setVolumeDecibelValue(_ value: Swift.Float) throws
+  open func setBooleanValue(_ value: Swift.Bool) throws
+  open func setSelectedItems(_ items: [Swift.UInt32]) throws
+  open func setStereoPanValue(_ value: Swift.Float) throws
+  open func convertToDecibels(fromScalar scalar: Swift.Float) throws -> Swift.Float
+  open func convertToScalar(fromDecibels decibels: Swift.Float) throws -> Swift.Float
+  open func selectorItemName(fromID ID: Swift.UInt32) throws -> Swift.String
+  open func selectorItemKind(fromID ID: Swift.UInt32) throws -> Swift.UInt32
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareDevice : CoreAudio_Private.AudioHardwareClock, @unchecked Swift.Sendable {
+  open var configurationApplication: Swift.String {
+    get throws
+  }
+  open var modelUID: Swift.String {
+    get throws
+  }
+  open var relatedDevices: [CoreAudio_Private.AudioHardwareDevice] {
+    get throws
+  }
+  open var canBeDefaultInputDevice: Swift.Bool {
+    get throws
+  }
+  open var canBeDefaultOutputDevice: Swift.Bool {
+    get throws
+  }
+  open var canBeDefaultSoundEffectsDevice: Swift.Bool {
+    get throws
+  }
+  open var streams: [CoreAudio_Private.AudioHardwareStream] {
+    get throws
+  }
+  open var inputSafetyOffset: Swift.Int {
+    get throws
+  }
+  open var outputSafetyOffset: Swift.Int {
+    get throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var icon: Foundation.URL? {
+    get throws
+  }
+  #endif
+  open var isHidden: Swift.Bool {
+    get throws
+  }
+  open var preferredInputChannelsForStereo: [Swift.UInt32] {
+    get throws
+  }
+  open var preferredOutputChannelsForStereo: [Swift.UInt32] {
+    get throws
+  }
+  open var isRunningInAProcess: Swift.Bool {
+    get throws
+  }
+  open var hogModePID: _DarwinFoundation2.pid_t {
+    get throws
+  }
+  open var bufferFrameSize: Swift.Int {
+    get throws
+  }
+  open var bufferFrameSizeRange: CoreAudioTypes.AudioValueRange {
+    get throws
+  }
+  open var usesVariableBufferFrameSizes: Swift.Bool {
+    get throws
+  }
+  open var largestVariableBufferFrameSize: Swift.Int {
+    get throws
+  }
+  open var ioCycleUsage: Swift.Float {
+    get throws
+  }
+  open var inputStreamConfiguration: [CoreAudioTypes.AudioBuffer] {
+    get throws
+  }
+  open var outputStreamConfiguration: [CoreAudioTypes.AudioBuffer] {
+    get throws
+  }
+  open var actualSampleRate: Swift.Double {
+    get throws
+  }
+  open var clock: CoreAudio_Private.AudioHardwareClock {
+    get throws
+  }
+  open var workgroup: os_workgroup.WorkGroup {
+    get throws
+  }
+  open var isProcessInputMuted: Swift.Bool {
+    get throws
+  }
+  open var isProcessOutputMuted: Swift.Bool {
+    get throws
+  }
+  open var currentTime: CoreAudioTypes.AudioTimeStamp {
+    get throws
+  }
+  open func setPreferredInputChannelsForStereo(_ channels: [Swift.UInt32]) throws
+  open func setPreferredOutputChannelsForStereo(_ channels: [Swift.UInt32]) throws
+  open func setBufferFrameSize(_ size: Swift.Int) throws
+  open func setIOCycleUsage(_ usage: Swift.Float) throws
+  open func setClock(_ clock: CoreAudio_Private.AudioHardwareClock) throws
+  open func setIsProcessInputMuted(_ muted: Swift.Bool) throws
+  open func setIsProcessOutputMuted(_ muted: Swift.Bool) throws
+  open func toggleHogMode() throws -> _DarwinFoundation2.pid_t
+  open func translateTime(_ timestamp: CoreAudioTypes.AudioTimeStamp) throws -> CoreAudioTypes.AudioTimeStamp
+  open func nearestStartTime(atTime timestamp: CoreAudioTypes.AudioTimeStamp, withFlags flags: Swift.UInt32 = 0) throws -> CoreAudioTypes.AudioTimeStamp
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func start(IOProcID: CoreAudio_Private.AudioDeviceIOProcID? = nil) throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func start(at time: CoreAudioTypes.AudioTimeStamp, flags: Swift.UInt32 = 0, IOProcID: CoreAudio_Private.AudioDeviceIOProcID? = nil) throws -> CoreAudioTypes.AudioTimeStamp?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func stop(IOProcID: CoreAudio_Private.AudioDeviceIOProcID? = nil) throws
+  #endif
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwarePlugin : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  open var bundleID: Swift.String {
+    get throws
+  }
+  open var devices: [CoreAudio_Private.AudioHardwareDevice] {
+    get throws
+  }
+  open var boxes: [CoreAudio_Private.AudioHardwareBox] {
+    get throws
+  }
+  open var clocks: [CoreAudio_Private.AudioHardwareClock] {
+    get throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func device(forUID UID: Swift.String) throws -> CoreAudio_Private.AudioHardwareDevice?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func box(forUID UID: Swift.String) throws -> CoreAudio_Private.AudioHardwareBox?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func clock(forUID UID: Swift.String) throws -> CoreAudio_Private.AudioHardwareClock?
+  #endif
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareAggregateDevice : CoreAudio_Private.AudioHardwareDevice, @unchecked Swift.Sendable {
+  open var subdevices: [CoreAudio_Private.AudioHardwareClock] {
+    get throws
+  }
+  open var activeSubdevices: [CoreAudio_Private.AudioHardwareClock] {
+    get throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var clockSource: CoreAudio_Private.AudioHardwareObject? {
+    get throws
+  }
+  #endif
+  open var composition: [Swift.String : Any] {
+    get throws
+  }
+  open func setSubdevices(_ devices: [CoreAudio_Private.AudioHardwareClock]) throws
+  open func setClockSource(_ object: CoreAudio_Private.AudioHardwareObject) throws
+  open func setComposition(_ composition: [Swift.String : Any]) throws
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@available(macOS 15.0, *)
+open class AudioHardwareObject : @unchecked Swift.Sendable {
+  final public let id: CoreAudio_Private.AudioObjectID
+  public var delegates: [any CoreAudio_Private.PropertyListenerDelegate] {
+    get
+    set(newDelegates)
+  }
+  open var baseClassID: CoreAudio_Private.AudioClassID {
+    get throws
+  }
+  open var classID: CoreAudio_Private.AudioClassID {
+    get throws
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  open var owner: CoreAudio_Private.AudioHardwareObject? {
+    get throws
+  }
+  #endif
+  open var name: Swift.String {
+    get throws
+  }
+  open var modelName: Swift.String {
+    get throws
+  }
+  open var manufacturer: Swift.String {
+    get throws
+  }
+  open var ownedObjects: [CoreAudio_Private.AudioHardwareObject] {
+    get throws
+  }
+  open var isIdentifying: Swift.Bool {
+    get throws
+  }
+  open var serialNumber: Swift.String {
+    get throws
+  }
+  open var firmwareVersion: Swift.String {
+    get throws
+  }
+  open var creatorBundleID: Swift.String {
+    get throws
+  }
+  open func setName(_ name: Swift.String) throws
+  open func setIsIdentifying(_ isIdentifying: Swift.Bool) throws
+  open func setCreatorBundleID(_ ID: Swift.String) throws
+  public init(id: CoreAudio_Private.AudioObjectID)
+  open func hasProperty(address: CoreAudio_Private.AudioObjectPropertyAddress) -> Swift.Bool
+  open func isPropertySettable(address: CoreAudio_Private.AudioObjectPropertyAddress) throws -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func propertyDataSize(address: CoreAudio_Private.AudioObjectPropertyAddress, qualifier: Foundation.Data? = nil) throws -> Swift.Int
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func propertyData(address: CoreAudio_Private.AudioObjectPropertyAddress, qualifier: Foundation.Data? = nil) throws -> Foundation.Data
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func setPropertyData(address: CoreAudio_Private.AudioObjectPropertyAddress, qualifier: Foundation.Data? = nil, data: Foundation.Data) throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func setPropertyData(address: CoreAudio_Private.AudioObjectPropertyAddress, qualifier: Foundation.Data? = nil, data: inout Foundation.Data) async throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func addListener(forProperties properties: [CoreAudio_Private.AudioObjectPropertyAddress], dispatchQueue: Dispatch.dispatch_queue_t? = nil) throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func removeListener(forProperties properties: [CoreAudio_Private.AudioObjectPropertyAddress], dispatchQueue: Dispatch.dispatch_queue_t? = nil) throws
+  #endif
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(macOS 15.0, *)
+open class AudioHardwareClock : CoreAudio_Private.AudioHardwareObject, @unchecked Swift.Sendable {
+  open var uid: Swift.String {
+    get throws
+  }
+  open var transportType: Swift.UInt32 {
+    get throws
+  }
+  open var clockDomain: Swift.UInt32 {
+    get throws
+  }
+  open var isAlive: Swift.Bool {
+    get throws
+  }
+  open var isRunning: Swift.Bool {
+    get throws
+  }
+  open var inputLatency: Swift.Int {
+    get throws
+  }
+  open var outputLatency: Swift.Int {
+    get throws
+  }
+  open var controls: [CoreAudio_Private.AudioHardwareControl] {
+    get throws
+  }
+  open var nominalSampleRate: Swift.Double {
+    get throws
+  }
+  open var availableNominalSampleRates: [CoreAudioTypes.AudioValueRange] {
+    get throws
+  }
+  open func setNominalSampleRate(_ sampleRate: Swift.Double) throws
+  override public init(id: CoreAudio_Private.AudioObjectID)
+  @objc deinit
+}
+@available(macOS 15.0, *)
+extension CoreAudio_Private.AudioHardwareDirection : Swift.Equatable {}
+@available(macOS 15.0, *)
+extension CoreAudio_Private.AudioHardwareDirection : Swift.Hashable {}
+@available(macOS 15.0, *)
+extension CoreAudio_Private.AudioHardwareDirection : Swift.RawRepresentable {}

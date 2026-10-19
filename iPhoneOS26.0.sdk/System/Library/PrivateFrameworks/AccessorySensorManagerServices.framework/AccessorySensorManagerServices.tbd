@@ -1,0 +1,21 @@
+--- !tapi-tbd-v3
+archs:                 [ armv7, armv7s, arm64, arm64e ]
+platform:              ios
+flags:                 [ flat_namespace ]
+install-name:          /System/Library/PrivateFrameworks/AccessorySensorManagerServices.framework/AccessorySensorManagerServices
+current-version:       1
+compatibility-version: 1
+objc-constraint:       retain_release
+exports:
+  - archs:                [ armv7, armv7s, arm64, arm64e ]
+    symbols:              [ _ASMErrorDomain, _ASMErrorF, _ASMXPCGetNextClientID,
+                            _ASMXPCGetNextConnectionID ]
+    objc-classes:         [ ASMPeripheralConfig, ASMPeripheralControlServices ]
+    objc-ivars:           [ ASMPeripheralControlServices._clientID,
+                            ASMPeripheralControlServices._dispatchQueue,
+                            ASMPeripheralControlServices._interruptionHandler,
+                            ASMPeripheralControlServices._invalidateCalled,
+                            ASMPeripheralControlServices._invalidateDone,
+                            ASMPeripheralControlServices._invalidationHandler,
+                            ASMPeripheralControlServices._xpcCnx ]
+...
